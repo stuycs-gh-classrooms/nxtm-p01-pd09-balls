@@ -35,8 +35,7 @@ enemy attack
 enemy types
 - lo3w hp, high atkspeed: jelyfish
 - avg hp, avg attackspeed: square with feet
-- high hp, low atkspeed: the mega square (mysterious)
-
+- high hp, low atkspeed: peasant square
 enemy and player health
 diff enemy features for each type
 
@@ -48,6 +47,7 @@ What are some features that are not essential to the program, but you would like
 the towers that protect the player
 enemy designs
 a boss enemy
+- high hp, no attavks: the mega square (mysterious)
 score count
 
 ### Array Usage
