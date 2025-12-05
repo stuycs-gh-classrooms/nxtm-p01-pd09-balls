@@ -27,12 +27,25 @@ The first phase will be to work on this document.
 ### Necessary Features
 What are the core features that your program should have? These should be things that __must__ be implemented in order to make the program useable/playable, not extra features that could be added to make the program more interesting/fun.
 
-YOUR ANSWERS HERE
+movable player
+player attack
+
+moving enemies
+enemy attack
+enemy types
+
+enemy and player health
+diff enemy features for each type
+
+play/pauser/reset
 
 ### Extra Features
 What are some features that are not essential to the program, but you would like to see (provided you have time after completing the necessary features. Theses can be customizations that are not part of the core requirements.
 
-YOUR ANSWERS HERE
+the towers that protect the player
+enemy designs
+a boss enemy
+score count
 
 ### Array Usage
 How will you be using arrays in this project?
@@ -41,16 +54,16 @@ How will you be using arrays in this project?
 - YOUR ANSER HERE
 
 2D Array:
-- YOUR ANSWER HERE
+- enemies are in a grid
 
 
 ### Controls
 How will your program be controlled? List all keyboard commands and mouse interactions.
 
 Keyboard Commands:
-- LIST OF COMMANDS HERE
-
-Mouse Control:
+- a and s to move
+- spacebar to shoot
+Mouse Control: none
 - Mouse movement:
 - Mouse pressed:
 
@@ -58,14 +71,23 @@ Mouse Control:
 ### Classes
 What classes will you be creating for this project? Include the instance variables and methods that you believe you will need. You will be required to create at least 2 different classes. If you are going to use classes similar to those we've made for previous assignments, you will have to add new features to them.
 
-CLASS NAME0
+Enemy
 - Instance variables:
-  - LIST INSTANCE VARS HERE
+  - HP
+  - speed (strethch goal)
 - METHODS
-  - LIST METHODS HERE
-
-CLASS NAME1
+  - move
+  - shoot
+    
+Player
 - Instance variables:
-  - LIST INSTANCE VARS HERE
+  - lives
 - METHODS
-  - LIST METHODS HERE
+  - move
+  - shoot
+ 
+Projectile
+- Instance variables:
+- Methods:
+  - move (straight forward)
+  - collide (w/ enemies or player)
