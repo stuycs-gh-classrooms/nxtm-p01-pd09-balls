@@ -33,6 +33,9 @@ player attack
 moving enemies
 enemy attack
 enemy types
+- lo3w hp, high atkspeed: jelyfish
+- avg hp, avg attackspeed: square with feet
+- high hp, low atkspeed: the mega square (mysterious)
 
 enemy and player health
 diff enemy features for each type
