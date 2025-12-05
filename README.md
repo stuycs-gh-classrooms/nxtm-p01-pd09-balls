@@ -67,6 +67,8 @@ How will your program be controlled? List all keyboard commands and mouse intera
 Keyboard Commands:
 - a and s to move
 - spacebar to shoot
+- r to reset
+- p to pause/play
 Mouse Control: none
 - Mouse movement:
 - Mouse pressed:
