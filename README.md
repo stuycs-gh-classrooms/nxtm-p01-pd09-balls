@@ -46,6 +46,7 @@ What are some features that are not essential to the program, but you would like
 
 the towers that protect the player
 enemy designs
+- diff ones for the avergae enemy
 a boss enemy
 - high hp, no attavks: the mega square (mysterious)
 score count
