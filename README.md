@@ -51,6 +51,7 @@ a boss enemy
 - high hp, no attavks: the mega square (mysterious)
 score count
 diff screen wehn you pause
+death screen
 
 ### Array Usage
 How will you be using arrays in this project?
