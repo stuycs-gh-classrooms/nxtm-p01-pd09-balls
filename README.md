@@ -27,31 +27,30 @@ The first phase will be to work on this document.
 ### Necessary Features
 What are the core features that your program should have? These should be things that __must__ be implemented in order to make the program useable/playable, not extra features that could be added to make the program more interesting/fun.
 
-movable player
-player attack
+- movable player
+- player attack
 
-moving enemies
-enemy attack
-enemy types
-- lo3w hp, high atkspeed: jelyfish
-- avg hp, avg attackspeed: square with feet
-- high hp, low atkspeed: peasant square
-enemy and player health
-diff enemy features for each type
+- moving enemies
+- enemy attack
+- enemy types
+  - lo3w hp, high atkspeed: jelyfish
+  - avg hp, avg attackspeed: square with feet
+  - high hp, low atkspeed: peasant square
+- enemy and player health values
 
-play/pauser/reset
+- play/pauser/reset
 
 ### Extra Features
 What are some features that are not essential to the program, but you would like to see (provided you have time after completing the necessary features. Theses can be customizations that are not part of the core requirements.
 
-the towers that protect the player
-enemy designs
-- diff ones for the avergae enemy
-a boss enemy
-- high hp, no attavks: the mega square (mysterious)
-score count
-diff screen wehn you pause
-death screen
+- the towers that protect the player
+- enemy designs
+  - diff variations of the avergae enemy
+- a boss enemy
+  - high hp, no attavks: the mega square (mysterious)
+- score count
+- diff screen wehn you pause
+- death screen
 
 ### Array Usage
 How will you be using arrays in this project?
