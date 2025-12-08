@@ -56,7 +56,7 @@ What are some features that are not essential to the program, but you would like
 How will you be using arrays in this project?
 
 1D Array:
-- YOUR ANSER HERE
+- none
 
 2D Array:
 - enemies are in a grid
