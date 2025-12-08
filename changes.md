@@ -1,0 +1,1 @@
+- make enemy and player one class
