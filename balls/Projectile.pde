@@ -3,13 +3,14 @@ class Projectile {
   int x, y;
   int size;
   int dir;
-  int spd = 3; //placeholdre
+  int spd;
   
   Projectile(int prx, int pry, int prsize, int prdir) {
     x = prx;
     y = pry;
     size = prsize;
     dir = prdir; // -1 if player, 1 if enemy
+    spd = 3;
     
   }
   
