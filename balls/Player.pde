@@ -2,7 +2,7 @@ class Player {
   
   int hp;
   int x, y;
-  int size;
+  int size; // radiuss
   int spd; // speed
   
   // constructor

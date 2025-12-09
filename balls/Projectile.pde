@@ -17,8 +17,23 @@ class Projectile {
     y += dir * spd;
   }
   
-  // touch player or enemy?
-  void collisionCheck() {
+  // touch player or enemy
+  boolean collisionCheck(Enemy opp) {
+    if (y - size == opp.y + opp.size) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  
+  boolean collisionCheck(Player opp) {
+    if (y - size == opp.y + opp.size) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
   
   void display() {
