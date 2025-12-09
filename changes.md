@@ -1,1 +1,3 @@
-- make enemy and player one class (maybe)
+- add x and y coordiate and size instance varialbes to all classes
+- add speed instance varible to projectile
+- add display method to everything
