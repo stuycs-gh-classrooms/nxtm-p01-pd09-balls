@@ -31,7 +31,7 @@ void keyPressed() {
       p.move(1);
     }
     
-    // shoot
+    // player shoot
     if (key == ' ') {
       p.shoot();
     }
