@@ -27,7 +27,7 @@ class Projectile {
       return false;
     }
   }
-  
+ 
   boolean collisionCheck(Player opp) {
     if (y - size == opp.y + opp.size) {
       return true;
