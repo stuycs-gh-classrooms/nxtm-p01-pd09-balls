@@ -4,22 +4,37 @@ Projectile pPR; // only one player projectile should exist at a time
 
 Enemy[][] invaders;
 
-boolean playing;
+boolean playing; // pause funtion
 
 void setup() {
   size(600, 600);
-  p = new Player(width / 2, height - 40, 60);
+  
+  p = new Player(width / 2, height - 40, width / 10);
   playing = true;
 }
 
 void draw() {
-  background(0);
+  background(255);
+  
   p.display();
+  
+  if (pPR != null) {
+    pPR.display();    
+    
+    if (playing) {
+      pPR.move();
+    }
+    
+    if (pPR.y <= 0) { // destroy whenit goes off screen
+      pPR = null;
+    }
+    
+  }
 }
 
 void keyPressed() {
   
-  if (playing) {
+  if (playing) { // player controsl
     
     //println("playing");
     // movement
@@ -33,7 +48,16 @@ void keyPressed() {
     
     // player shoot
     if (key == ' ') {
-      p.shoot();
+      if (pPR == null) {
+        p.shoot();
+      }
     }
+  }
+  
+  if (key == 'p') {
+    playing = !playing;
+  }
+  if (key == 'r') {
+    
   }
 }

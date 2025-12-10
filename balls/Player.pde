@@ -10,7 +10,7 @@ class Player {
     x = px;
     y = py;
     size = psize;
-    spd = 3;
+    spd = 15;
   }
   
   // move the player
@@ -22,7 +22,7 @@ class Player {
   }
   
   void shoot() {
-    pPR = new Projectile(x, y, 4, -1);
+    pPR = new Projectile(x, y, 20, -1);
   }
   
   void display() {

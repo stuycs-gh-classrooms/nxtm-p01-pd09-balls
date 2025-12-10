@@ -10,7 +10,7 @@ class Projectile {
     y = pry;
     size = prsize;
     dir = prdir; // -1 if player, 1 if enemy
-    spd = 3;
+    spd = 10;
     
   }
   
