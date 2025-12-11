@@ -9,6 +9,7 @@ boolean playing; // pause funtion
 int rows = 4;
 int cols = 8; //placeholder numbers
 int score = 0;
+int difficulty;
 
 
 void setup() {
@@ -97,18 +98,32 @@ void draw() {
   textSize(20);
   text("Score: " + score, 10, 30);
   text("Lives: " + p.lives, 10, 50);
+  text("Difficulty: " + difficulty, 10, 70);
   
   // game over?
-  if (gameOver()) {
+  if (gameOver() == 0) { // lost
     playing = false;
     fill(255, 0, 0);
-    text("YOU LOSE!", 10, 70);
+    text("YOU LOSE!", 10, 90);
+  }
+  else if (gameOver() == 1) { // won
+    // respawn invadres
+    for (int r = 0; r < rows; r++) {
+    for (int c = 0; c < cols; c++) {
+      invaders[r][c] = new Enemy(60 + c * 60, 60 + r * 60, int(random(3)));
+    }
+  }
+  
+  difficulty += 1;
+  int projLimit = ePR.length + 5;
+  ePR = new Projectile[projLimit]; // more projectiles can exist at once
+  
   }
   
   // pause
   else if (!playing) {
     fill(255, 0, 0);
-    text("PAUSED", 10, 70);
+    text("PAUSED", 10, 90);
   }
 } // draw
 
@@ -165,19 +180,34 @@ void moveEnemies() {
   }
 }
 
-boolean gameOver() {
+//boolean gameOver() {
+//  if (p.lives <= 0) {
+//    return true;
+//  }
+  
+//  for (int r = 0; r < rows; r++) {
+//    for (int c = 0; c < cols; c++) {
+//      if (invaders[r][c].alive) {
+//        return false;  // game is not over if enemies = alive
+//      }
+//    }
+//  }
+//  return true;  // game over if enemies = dead
+//}
+
+int gameOver() {
   if (p.lives <= 0) {
-    return true;
+    return 0; //lost
   }
   
   for (int r = 0; r < rows; r++) {
     for (int c = 0; c < cols; c++) {
       if (invaders[r][c].alive) {
-        return false;  // game is not over if enemies = alive
+        return -1;  // game cotineu
       }
     }
   }
-  return true;  // game over if enemies = dead
+  return 1;  // won // game over if enemies = dead
 }
 
 void resetGame() {

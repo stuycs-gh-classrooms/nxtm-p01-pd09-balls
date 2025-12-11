@@ -5,8 +5,11 @@ class Enemy {
   int y;
   int type;
   int speed = 1;
-  int shootChance; // different for diffetrent tpyes
+  
   boolean alive = true;
+  
+  int shootChance; // different for diffetrent tpyes
+  //int lastShot;
   
   Enemy(int ex, int ey, int etype) {
     x = ex;
@@ -44,7 +47,8 @@ class Enemy {
       //println("tried to shoot");
       if (int(random(shootChance)) == 0) {
         ePR[i] = new Projectile(x, y, 20, 1, 5);
-        println("shoht");
+        //println("shoht");
+        //lastShot = frameCount;
       }
     }
   }
@@ -57,6 +61,14 @@ class Enemy {
     }
     return -1; //array full
   }
+  
+  //boolean cooldown(int lS) {
+  //  float cd = frameRate * 3; // seconds without shooting
+  //  if (frameCount >= lS + cd) {
+  //    return true;
+  //  }
+  //  return false;
+  //}
   
   
 }
