@@ -18,10 +18,10 @@ class Enemy {
       x += speed;
     }
     
-    if(x > width - 20 || x < 20){
-      speed *= -1;
-      y += 30; //moves down after hitting screen edge
-    }
+    //if(x > width - 20 || x < 20){
+    //  speed *= -1;
+    //  y += 30; //moves down after hitting screen edge
+    //}
     
   }
   

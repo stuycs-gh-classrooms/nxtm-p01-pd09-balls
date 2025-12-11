@@ -47,8 +47,11 @@ void draw() {
   for (int r = 0; r < rows; r++) {
     for (int c = 0; c < cols; c++) {
       Enemy e = invaders[r][c];
+      e.update();
       if (e.alive) {
-        e.update();
+        if(e.x > width - 20 || e.x < 20){
+          moveEnemies();
+        }
         e.display();
       }
     }
@@ -99,6 +102,15 @@ void checkCollisions() {
         pPR = null;  // destroy the projectile
         score += 10;  // add to score
       }
+    }
+  }
+}
+
+void moveEnemies() {
+  for (int r = 0; r < rows; r++) {
+    for (int c = 0; c < cols; c++) {
+      invaders[r][c].speed *= -1;
+      invaders[r][c].y += 30; //moves down after hitting screen edge
     }
   }
 }
