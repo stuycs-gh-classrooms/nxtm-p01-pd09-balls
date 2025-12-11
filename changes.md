@@ -2,3 +2,4 @@
 - add speed instance varible to projectile
 - add display method to everything
 - 1d array used for enem y projectiles
+- enemy has shoot cahnce
