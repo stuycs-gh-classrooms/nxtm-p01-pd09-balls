@@ -10,6 +10,7 @@ class Enemy {
   Enemy(int ex, int ey, int etype) {
     this.x = ex;
     this.y = ey;
+    this.type = etype;
   }
   
   void update(){
@@ -19,13 +20,13 @@ class Enemy {
     
     if(x > width - 20 || x < 20){
       speed *= -1;
-      y += 30;
+      y += 30; //moves down after hitting screen edge
     }
     
   }
   
   void display(){
-    fill(0);
+    fill(255,0,0);
     rect(x,y,25,25);
   }
   
