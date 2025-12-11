@@ -4,6 +4,7 @@ class Player {
   int x, y;
   int size; // radiuss
   int spd; // speed
+  int lives;
   
   // constructor
   Player(int px, int py, int psize) {
@@ -11,6 +12,7 @@ class Player {
     y = py;
     size = psize;
     spd = 15;
+    lives = 5;
   }
   
   // move the player
@@ -22,10 +24,12 @@ class Player {
   }
   
   void shoot() {
-    pPR = new Projectile(x, y, 20, -1);
+    pPR = new Projectile(x, y, 20, -1, 10);
   }
   
   void display() {
+    stroke(0);
+    fill(0);
     circle(x, y, size);
   }
 }

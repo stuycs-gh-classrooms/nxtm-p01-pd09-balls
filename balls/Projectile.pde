@@ -5,18 +5,19 @@ class Projectile {
   int dir;
   int spd;
   
-  Projectile(int prx, int pry, int prsize, int prdir) {
+  Projectile(int prx, int pry, int prsize, int prdir, int prspd) {
     x = prx;
     y = pry;
     size = prsize;
     dir = prdir; // -1 if player, 1 if enemy
-    spd = 10;
+    spd = prspd;
     
   }
   
   void move() {
     y += dir * spd;
   }
+  
   
   // Check collision with enemies
   boolean collisionCheck(Enemy opp) {
@@ -25,9 +26,21 @@ class Projectile {
     }
     return false;
   }
+  
+  // Check collision with player
+  boolean collisionCheck(Player opp) {
+    if (y >= opp.y - opp.size && 
+        x >= opp.x - opp.size &&
+        x <= opp.x + opp.size) {
+        return true;
+    }
+    return false;
+  }
 
   
   void display() {
+    if (dir == 1) {stroke(255, 0, 0);} // enemy bullet red
+    else {stroke(0);} // player black
     line(x, y, x, y - size);
   }
 }

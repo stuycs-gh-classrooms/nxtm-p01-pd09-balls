@@ -3,6 +3,7 @@ Player p;
 Projectile pPR; // only one player projectile should exist at a time
 
 Enemy[][] invaders;
+Projectile[] ePR;
 
 boolean playing; // pause funtion
 int rows = 4;
@@ -13,7 +14,7 @@ int score = 0;
 void setup() {
   size(600, 600);
 
-  p = new Player(width / 2, height - 40, width / 10);
+  p = new Player(width / 2, height - 40, width / 20);
   playing = true;
 
   invaders = new Enemy[rows][cols];
@@ -22,11 +23,13 @@ void setup() {
       invaders[r][c] = new Enemy(60 + c * 60, 60 + r * 60, int(random(3)));
     }
   }
+  ePR = new Projectile[5]; // cap on how many enemy projectiles can exist at once
 }
 
 void draw() {
   background(255);
-
+  
+  // player + player projcetile
   p.display();
 
   if (pPR != null) {
@@ -47,20 +50,66 @@ void draw() {
   for (int r = 0; r < rows; r++) {
     for (int c = 0; c < cols; c++) {
       Enemy e = invaders[r][c];
-      e.update();
-      if (e.alive) {
-        if(e.x > width - 20 || e.x < 20){
-          moveEnemies();
+      
+      if (playing) {
+        e.update();
+        e.shoot();
+        if (e.alive) {
+          // check if anyone has hit the edegeg
+          if(e.x > width - 20 || e.x < 20){
+            moveEnemies();
+          }
+          
         }
+      }
+      if (e.alive) {
         e.display();
+      }
+
+      
+    }
+  }
+  
+  // enemy projectiles
+  for (int i = 0; i < ePR.length; i++) { 
+    if (ePR[i] != null) {
+      if (playing) {
+        ePR[i].move();
+        //if (ePR[i].collisionCheck(p)) {
+        //  p.lives -= 1;
+        //  ePR[i] = null;
+        //}
+      
+      }
+      ePR[i].display();
+      if (ePR[i].y >= height) {
+        ePR[i] = null;
+      }
+      else if (ePR[i].collisionCheck(p)) {
+        p.lives -= 1;
+        ePR[i] = null;
       }
     }
   }
 
-  // Display score
+  // Display score & lives
   fill(0);
   textSize(20);
   text("Score: " + score, 10, 30);
+  text("Lives: " + p.lives, 10, 50);
+  
+  // game over?
+  if (gameOver()) {
+    playing = false;
+    fill(255, 0, 0);
+    text("YOU LOSE!", 10, 70);
+  }
+  
+  // pause
+  else if (!playing) {
+    fill(255, 0, 0);
+    text("PAUSED", 10, 70);
+  }
 } // draw
 
 void keyPressed() {
@@ -106,6 +155,7 @@ void checkCollisions() {
   }
 }
 
+// once one enemy hits the edge evryone moves down
 void moveEnemies() {
   for (int r = 0; r < rows; r++) {
     for (int c = 0; c < cols; c++) {
@@ -116,6 +166,10 @@ void moveEnemies() {
 }
 
 boolean gameOver() {
+  if (p.lives <= 0) {
+    return true;
+  }
+  
   for (int r = 0; r < rows; r++) {
     for (int c = 0; c < cols; c++) {
       if (invaders[r][c].alive) {
