@@ -1,0 +1,214 @@
+//player
+
+int x =200;
+int y = 200;
+int size = width / 20;
+
+size(600,600);
+
+
+fill(random(255),random(255),random(255));
+circle(x,y,size); //base
+fill(255,0,0);
+circle(x - size / 4 ,y ,size / 4);
+circle(x + size / 4,y,size / 4); //eyes
+rect(x - size / 4,y + size / 5, size / 2,20); //mouth
+strokeWeight(5);
+line(100,90, 200, 200);
+line(300,90,200,200); //eyebrows
+
+//enemy1 (peasant square)
+
+rect (100,100,200,180); //base
+rect (140,150,30,30);
+rect (230,150,30,30); //eyes
+rect (140,230,120,20);
+rect (50,280,50,50);
+rect (300,280,50,50);
+
+
+/////////////////////class enemy changes
+
+class Enemy {
+  
+  int x;
+  int y;
+  int type;
+  int speed = 3;
+  boolean alive = true;
+  
+  Enemy(int ex, int ey, int etype) {
+    this.x = ex;
+    this.y = ey;
+  }
+  
+  void update(){
+    if(alive){
+      x += speed;
+    }
+    
+    if(x > width - 20 || x < 20){
+      speed *= -1;
+      y += 20;
+    }
+    
+  }
+  
+  void display(){
+    fill(0);
+    rect(x,y,25,25);
+  }
+  
+}
+
+
+///////////////////driver file changes
+
+// driver file
+Player p;
+Projectile pPR; // only one player projectile should exist at a time
+
+Enemy[][] invaders;
+
+boolean playing; // pause funtion
+int rows = 4;
+int cols = 8; //placeholder numbers
+
+void setup() {
+  size(600, 600);
+  
+  p = new Player(width / 2, height - 40, width / 10);
+  playing = true;
+  
+  invaders = new Enemy[rows][cols];
+  for(int r = 0; r < rows; r++){
+    for(int c = 0; c < cols; c++){
+      invaders[r][c] = new Enemy(60 + c * 60, 60 + r * 60, int(random(3)));
+    }
+  }
+} //setup
+
+void draw() {
+  background(255);
+  
+  p.display();
+  
+  if (pPR != null) {
+    pPR.display();    
+    
+    if (playing) {
+      pPR.move();
+    }
+    
+    if (pPR.y <= 0) { // destroy whenit goes off screen
+      pPR = null;
+    }
+    
+  }
+  
+  ///////enemy
+  for(int r = 0; r < rows; r++){
+    for(int c = 0; c < cols; c++){
+      Enemy e = invaders[r][c];
+      if(e.alive){
+        e.update();
+        e.display();
+      }
+    }
+  }
+  
+}
+
+void keyPressed() {
+  
+  if (playing) { // player controsl
+    
+    //println("playing");
+    // movement
+    if (keyCode == LEFT) {
+      p.move(-1);
+      //println("left");
+    }
+    if (keyCode == RIGHT) {
+      p.move(1);
+    }
+    
+    // player shoot
+    if (key == ' ') {
+      if (pPR == null) {
+        p.shoot();
+      }
+    }
+  }
+  
+  if (key == 'p') {
+    playing = !playing;
+  }
+  if (key == 'r') {
+    
+  }
+}
+
+
+
+
+////////////other possible changes
+
+/*
+
+
+- driver
+  - Projectile[] shots;
+  - shots = new Projectile[20];
+  for (int i = 0; i < shots.length; i++) {
+    shots[i] = new Projectile();
+  } // 1d array for shots
+
+
+
+ - Projectile class
+    - boolean active
+    - void fire(int startx, int starty){
+        x = startx;
+        y = starty;
+        active = true;
+    }
+    - void update(){
+        if(active){
+          y -= speed; //moves forward from player
+        }
+
+        if(y < 0){
+          active = false; //out of bounds = delete the shot
+        }
+
+      }
+
+
+    - void display() {
+    if (active) {
+      fill(0, 200, 255);
+      rectMode(CENTER);
+      rect(x, y, 4, 12);
+    }
+  }
+
+
+- Enemy class
+  - boolean collide(float px, float py) {
+    return dist(px, py, x, y) < 15;
+  }
+  - // collision check
+        for (Projectile p : shots) {
+          if (p.active && e.collide(p.x, p.y)) {
+            p.active = false;
+            e.alive = false;
+          }
+        }
+
+
+
+*/
+
+
+

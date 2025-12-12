@@ -1,0 +1,5 @@
+- add x and y coordiate and size instance varialbes to all classes
+- add speed instance varible to projectile
+- add display method to everything
+- 1d array used for enem y projectiles
+- enemy has shoot cahnce

@@ -1,8 +1,8 @@
 # NeXtCS Project 01
-### Period:  
-### Name0: YOUR NAME HERE
-### Name1: TEAMMATE NAME HERE (delete if working solo)
-#### Selected Game: YOUR GAME HERE
+### Period: 9
+### Name0: Zarah Mahreen
+### Name1: Siqing Huang
+#### Selected Game: space invaders
 ---
 
 ### How To Play
