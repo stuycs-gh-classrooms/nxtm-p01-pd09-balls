@@ -32,6 +32,7 @@ class Projectile {
     if (y >= opp.y - opp.size && 
         x >= opp.x - opp.size &&
         x <= opp.x + opp.size) {
+        println("hit");
         return true;
     }
     return false;

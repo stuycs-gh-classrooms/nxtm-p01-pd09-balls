@@ -24,7 +24,7 @@ class Player {
   }
   
   void shoot() {
-    pPR = new Projectile(x, y, 20, -1, 10);
+    pPR = new Projectile(x, y, 20, -1, 15);
   }
   
   void display() {

@@ -5,6 +5,7 @@ class Enemy {
   int y;
   int type;
   int speed = 1;
+  int inc;
   
   boolean alive = true;
   
@@ -15,20 +16,21 @@ class Enemy {
     x = ex;
     y = ey;
     type = etype;
+    inc = width / 20; // increment to move by
     if (type == 0) {shootChance = 400;}
     else if (type == 1) {shootChance = 300;}
     else if (type == 2) {shootChance = 250;}
   }
   
+  //void update(){
+  //  if(alive){
+  //    x += speed;
+  //  }
+  
   void update(){
     if(alive){
       x += speed;
     }
-    
-    //if(x > width - 20 || x < 20){
-    //  speed *= -1;
-    //  y += 30; //moves down after hitting screen edge
-    //}
     
   }
   

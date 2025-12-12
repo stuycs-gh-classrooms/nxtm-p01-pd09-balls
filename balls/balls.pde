@@ -75,12 +75,7 @@ void draw() {
   for (int i = 0; i < ePR.length; i++) { 
     if (ePR[i] != null) {
       if (playing) {
-        ePR[i].move();
-        //if (ePR[i].collisionCheck(p)) {
-        //  p.lives -= 1;
-        //  ePR[i] = null;
-        //}
-      
+        ePR[i].move();    
       }
       ePR[i].display();
       if (ePR[i].y >= height) {
