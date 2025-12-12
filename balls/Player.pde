@@ -28,6 +28,7 @@ class Player {
   }
   
   void display() {
+    strokeWeight(1);
     stroke(0);
     fill(0);
     circle(x, y, size);

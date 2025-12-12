@@ -39,6 +39,7 @@ class Enemy {
     else if (type == 1) {fill(0, 255, 0);}
     else if (type == 2) {fill(0, 0, 255);}
     
+    strokeWeight(1);
     stroke(0);
     rect(x,y,25,25);
   }

@@ -42,6 +42,8 @@ class Projectile {
   void display() {
     if (dir == 1) {stroke(255, 0, 0);} // enemy bullet red
     else {stroke(0);} // player black
+    
+    strokeWeight(5);
     line(x, y, x, y - size);
   }
 }
