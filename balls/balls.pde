@@ -213,7 +213,7 @@ int gameOver() {
 void resetGame() {
   score = 0;
   playing = true;
-  p = new Player(width / 2, height - 40, width / 10);
+  p = new Player(width / 2, height - 40, width / 20);
   invaders = new Enemy[rows][cols];
   for (int r = 0; r < rows; r++) {
     for (int c = 0; c < cols; c++) {
